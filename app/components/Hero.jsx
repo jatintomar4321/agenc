@@ -103,7 +103,7 @@ export default function Hero() {
       opacity: 1,
       x: 0,
       transition: {
-        duration: 0.6,
+        duration: 1,
         ease: "easeOut",
       },
     },
@@ -113,11 +113,12 @@ export default function Hero() {
     <motion.div 
       data-scroll 
       data-scroll-section 
-      data-scroll-speed="-.7" 
-      className="w-full min-h-screen bg-[#0F0F0F] flex flex-col items-center justify-center text-center px-4 pt-24 lg:pt-2"
+      data-scroll-speed="-.5" 
+      className="w-full min-h-screen  bg-[#0C0C0C] flex flex-col items-center justify-center text-center px-4 pt-20 lg:pt-2"
       variants={containerVariants}
       initial="hidden"
       animate="visible"
+      ease = "easeInOutExpo"
     >
       {/* Tagline */}
       <motion.h2

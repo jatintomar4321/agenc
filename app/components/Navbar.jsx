@@ -9,7 +9,7 @@ export default function Navbar() {
   return (
     <div className='w-full flex justify-center'>
       <div className="fixed top-0 z-10 w-[22rem] flex items-center pt-6">
-        <div className="bg-white/30 backdrop-blur-sm rounded-full flex items-center justify-between px-6 py-3 w-full max-w-[90rem] relative overflow-hidden">
+        <div className="bg-[#2f2f2f]/25 backdrop-blur-sm rounded-full flex items-center justify-between px-6 py-3 w-full max-w-[90rem] relative overflow-hidden">
           {/* Gradient border effect */}
           <div className="absolute inset-0 rounded-full  opacity-50 -z-10" />
           
