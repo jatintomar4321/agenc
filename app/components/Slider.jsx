@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
-const AdvancedSliderSection = () => {
+const AdvancedSliderSection = ({h1}) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -106,24 +106,27 @@ const AdvancedSliderSection = () => {
   const visibleCards = isMobile ? 1 : 4;
 
   return (
-    <div data-scroll data-scroll-section data-scroll-speed=".6" className="bg-[#0C0C0C] max-h-[500px] lg:max-h-[500px] sm:max-h-[50px] p-4 py-10 md:p-4">
+    <div  className="bg-[#0C0C0C] relative top-10 mb-10 h-full  py-10 md:p-9">
       <div className="max-w-8xl mx-auto">
         {/* Header Section */}
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-start gap-4 mb-8 md:mb-12">
-          <h1 className="text-[#ff4545] text-3xl md:text-5xl font-bold font-[`Inter`]">Faster.</h1>
+          <h1 className="bg-gradient-to-r from-red-500 via-[#F15A29] to-[#EC008C] 
+                       text-transparent bg-clip-text text-3xl md:text-5xl font-bold font-[`Inter`]">{h1}.</h1>
           <div className="flex flex-wrap gap-4">
-            <button className="px-4 md:px-8 py-2 md:py-4 border border-[#ff4545] text-[#ff4545] hover:bg-[#ff4545] hover:text-black transition-colors rounded-full flex items-center text-sm md:text-base">
-              Explore Ideas
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
-              </svg>
-            </button>
-            <button className="px-4 md:px-8 py-2 md:py-4 border border-[#ff4545] text-[#ff4545] hover:bg-[#ff4545] hover:text-black transition-colors rounded-full flex items-center text-sm md:text-base">
-              Make an Idea
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2" viewBox="0 0 20 20" fill="currentColor">
-                <path d="M5 4a2 2 0 012-2h6a2 2 0 012 2v14l-5-2.5L5 18V4z" />
-              </svg>
-            </button>
+          <div class="mx-auto flex items-center justify-center">
+  <div class=" w-full rounded-full bg-gradient-to-r from-red-500 via-[#F15A29] to-[#EC008C] p-[0.15rem]">
+    <div class="flex h-full w-full px-10 py-2 rounded-full items-center justify-center bg-gray-800 back">
+      <h1 class="text-2xl font-black text-white">the quick </h1>
+    </div>
+  </div>
+</div>
+            <div class="mx-auto flex  items-center justify-center">
+  <div class="  rounded-full bg-gradient-to-r from-red-500 via-[#F15A29] to-[#EC008C] p-[0.15rem]">
+    <div class="flex h-full w-full px-10 py-2 rounded-full items-center justify-center bg-gray-800 back">
+      <h1 class="text-2xl font-black text-white">the quick </h1>
+    </div>
+  </div>
+</div>
           </div>
         </div>
 
@@ -148,7 +151,7 @@ const AdvancedSliderSection = () => {
                   <img
                     src={product.image}
                     alt={product.alt}
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <div className="absolute bottom-0 left-0 right-0 p-4 text-white">

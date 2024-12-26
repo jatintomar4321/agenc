@@ -111,10 +111,7 @@ export default function Hero() {
 
   return (
     <motion.div 
-      data-scroll 
-      data-scroll-section 
-      data-scroll-speed="-.5" 
-      className="w-full min-h-screen  bg-[#0C0C0C] flex flex-col items-center justify-center text-center px-4 pt-20 lg:pt-2"
+      className="w-full -z-30 max-h-screen  bg-[#0C0C0C] flex flex-col items-center justify-center text-center px-4 pt-20 lg:pt-40 pb-32"
       variants={containerVariants}
       initial="hidden"
       animate="visible"
