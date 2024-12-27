@@ -115,16 +115,16 @@ const AdvancedSliderSection = ({h1}) => {
           <div className="flex flex-wrap gap-4">
           <div class="mx-auto flex items-center justify-center">
   <div class=" w-full rounded-full bg-gradient-to-r from-red-500 via-[#F15A29] to-[#EC008C] p-[0.15rem]">
-    <div class="flex h-full w-full px-10 py-2 rounded-full items-center justify-center bg-gray-800 back">
-  
-      <h1 class="text-2xl font-black text-white">Explore Idea</h1>
+    <div class="flex h-full w-full px-10 py-2 rounded-full items-center justify-center bg-[#0C0C0C] back">
+    
+      <h1 class="text-md font-black text-white">Explore Idea</h1>
     </div>
   </div>
 </div>
             <div class="mx-auto flex  items-center justify-center">
   <div class="  rounded-full bg-gradient-to-r from-red-500 via-[#F15A29] to-[#EC008C] p-[0.15rem]">
-    <div class="flex h-full w-full px-10 py-2 rounded-full items-center justify-center bg-gray-800 back">
-      <h1 class="text-2xl font-black text-white">the quick </h1>
+    <div class="flex h-full w-full px-10 py-2 rounded-full items-center justify-center bg-[#0C0C0C] back">
+      <h1 class="text-md font-black text-white"> Make an idea </h1>
     </div>
   </div>
 </div>
