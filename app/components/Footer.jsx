@@ -81,7 +81,7 @@ const Footer = () => {
 
         {/* Copyright */}
         <div className="text-center text-gray-400">
-          <p>&copy; {currentYear} <span className="font-medium text-white">agen</span>C All Rights Reserved.</p>
+          <p>&copy; {currentYear} <span className="font-medium text-white">ModTerra Technologies Pvt Ltd.</span> All Rights Reserved.</p>
         </div>
       </div>
     </footer>
