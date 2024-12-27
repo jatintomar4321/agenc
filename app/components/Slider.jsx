@@ -79,8 +79,9 @@ const AdvancedSliderSection = ({h1}) => {
   ];
 
   const nextSlide = () => {
-    setCurrentIndex((prevIndex) => 
-      prevIndex + 1 >= productImages.length ? 0 : prevIndex + 1
+    const increment = window.innerWidth <= 768 ? 2 : 1; // Adjust the width threshold for mobile screens
+    setCurrentIndex((prevIndex) =>
+      prevIndex + 4 >= productImages.length ? 0 : prevIndex + increment
     );
   };
 
@@ -136,7 +137,7 @@ const AdvancedSliderSection = ({h1}) => {
           <motion.div
             className="flex"
             style={{ width: isMobile ? `${productImages.length * 50}%` : `${productImages.length * (100 / visibleCards)}%` }}
-            animate={{ x: isMobile ? `-${currentIndex * (10 / visibleCards)}%` : `-${currentIndex * (100 / visibleCards)}%` }}
+            animate={{ x: isMobile ? `-${currentIndex * (10 / visibleCards)}%` : `-${currentIndex * (40 / visibleCards)}%` }}
             transition={{ type: "spring", stiffness: 100, damping: 20 }}
           >
             {productImages.map((product) => (
