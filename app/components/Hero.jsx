@@ -143,7 +143,7 @@ export default function Hero() {
               ],
             }}
             transition={{ duration: 1, repeat: Infinity, ease: 'easeInOut' }}
-            className="bg-gradient-to-r from-[#ED1C24] via-[#F15A29] to-[#EC008C] 
+            className="bg-gradient-to-r from-[#ED1C24] via-[#F15A29] py-2 to-[#EC008C] 
                        text-transparent bg-clip-text"
             style={{
               display: 'inline-block',

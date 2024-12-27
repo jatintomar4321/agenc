@@ -33,7 +33,7 @@ export default function PricingTable() {
   ];
 
   return (
-    <div className="min-h-screen w-full absolute bg-black text-white sm:p-8">
+    <div className="min-h-screen w-full relative bg-[#0C0C0C] text-white sm:p-8">
       <div className="max-w-[1300px] mx-auto px-4">
         {/* Title */}
         <div className="text-center text-2xl lg:text-4xl font-bold pb-10">
@@ -77,7 +77,7 @@ export default function PricingTable() {
           {/* Features Column */}
           <div className="relative p-[1px] bg-gradient-to-r from-red-500 via-[#F15A29] to-[#EC008C] rounded-3xl">
             <div className="bg-black rounded-3xl">
-              <div className="p-6 text-center bg-gradient-to-r from-red-500 via-[#F15A29] to-[#EC008C] text-xl lg:text-2xl py-8">
+              <div className="p-6 text-center rounded-t-3xl bg-gradient-to-r from-red-500 via-[#F15A29] to-[#EC008C] text-xl lg:text-2xl py-8">
                 Features
               </div>
               {features.map((feature, index) => (
@@ -99,7 +99,7 @@ export default function PricingTable() {
           {/* Lite Column */}
           <div className="relative p-[1px] bg-gradient-to-r from-red-500 via-[#F15A29] to-[#EC008C] rounded-3xl">
             <div className="bg-black rounded-3xl">
-              <div className="p-6 text-center bg-gradient-to-r from-red-500 via-[#F15A29] to-[#EC008C] text-xl lg:text-2xl py-8">
+              <div className="p-6 text-center rounded-t-3xl bg-gradient-to-r from-red-500 via-[#F15A29] to-[#EC008C] text-xl lg:text-2xl py-8">
                 Lite
               </div>
               {liteValues.map((value, index) => (
@@ -121,7 +121,7 @@ export default function PricingTable() {
           {/* Enterprise Column */}
           <div className="relative p-[1px] bg-gradient-to-r from-red-500 via-[#F15A29] to-[#EC008C] rounded-3xl">
             <div className="bg-black rounded-3xl">
-              <div className="p-6 text-center bg-gradient-to-r from-red-500 via-[#F15A29] to-[#EC008C] text-xl lg:text-2xl py-8">
+              <div className="p-6 text-center rounded-t-3xl bg-gradient-to-r from-red-500 via-[#F15A29] to-[#EC008C] text-xl lg:text-2xl py-8">
                 Enterprise
               </div>
               {enterpriseValues.map((value, index) => (

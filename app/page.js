@@ -9,6 +9,7 @@ import Slider from './components/Slider'
 
 import LocomotiveScroll from 'locomotive-scroll'
 import PricingTable from './components/PricingTable'
+import Footer from './components/Footer'
 
 const Page = () => {
   const scrollRef = useRef(null)
@@ -43,6 +44,7 @@ const Page = () => {
       <Slider h1="Limitless"/>
       
       <PricingTable/>
+      <Footer className=""/>
       </div>
 
 
