@@ -2,9 +2,11 @@
 
 import Image from 'next/image'
 import { useState } from 'react'
+import { ContactForm } from './ContactForm'
 
 export default function Navbar() {
   const [isHovered, setIsHovered] = useState(false)
+  const [isContactFormOpen, setIsContactFormOpen] = useState(false)
 
   return (
     <div className='w-full flex justify-center'>
@@ -31,6 +33,7 @@ export default function Navbar() {
                         active:shadow-inner active:transform active:translate-y-0 active:scale-95`}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
+            onClick={() => setIsContactFormOpen(true)}
           >
             {/* Button gradient border */}
             <div className={`absolute inset-0 rounded-full bg-gradient-to-r from-red-500 to-pink-500 
@@ -51,6 +54,12 @@ export default function Navbar() {
           </button>
         </div>
       </div>
+
+      {/* Contact Form */}
+      <ContactForm 
+        isOpen={isContactFormOpen} 
+        onClose={() => setIsContactFormOpen(false)} 
+      />
     </div>
   )
 }
