@@ -1,9 +1,12 @@
-import { useState, useEffect } from 'react'
-
+import axios from 'axios'
+import { useEffect, useState } from 'react'
 export function ContactForm({ isOpen, onClose }) {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [phone, setPhone] = useState('')
+  const [otp, setOtp] = useState('')
+  const [isEmailVerified, setIsEmailVerified] = useState(false)
+  const [isOtpSent, setIsOtpSent] = useState(false)
 
   useEffect(() => {
     if (isOpen) {
@@ -16,8 +19,41 @@ export function ContactForm({ isOpen, onClose }) {
     }
   }, [isOpen])
 
+  const sendOtp = async () => {
+    // Simulate sending OTP
+    console.log(`Sending OTP to ${email}`)
+    // Simulate OTP for demo purposes (in real scenario, this would be generated on the server)
+    window.demoOtp = Math.floor(100000 + Math.random() * 900000).toString()
+    
+    try {
+        const response = await axios.post('http://localhost:8000/send-email', {
+        email: email,
+        otp: window.demoOtp,
+        });
+        if (response.status === 200) {
+            setIsOtpSent(true)
+        }
+    } catch (error) {
+        console.error('Error submitting form:', error);
+    }
+  }
+
+  const verifyOtp = () => {
+    // In a real application, you would verify the OTP with your backend
+    if (otp === window.demoOtp) {
+      setIsEmailVerified(true)
+      console.log('OTP verified successfully')
+    } else {
+      console.log('Invalid OTP')
+    }
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault()
+    if (!isEmailVerified) {
+      console.log('Please verify your email first')
+      return
+    }
     // Handle form submission here
     console.log({ name, email, phone })
     onClose()
@@ -53,10 +89,48 @@ export function ContactForm({ isOpen, onClose }) {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
+                  disabled={isEmailVerified}
                   className="block w-full rounded-md bg-white text-gray-700 border-none focus:outline-none focus:ring-2 focus:ring-indigo-200 focus:ring-opacity-50"
                 />
               </div>
             </div>
+            {!isEmailVerified && (
+              <div>
+                <button
+                  type="button"
+                  onClick={sendOtp}
+                  disabled={!email || isOtpSent}
+                  className="mt-2 px-4 py-2 text-sm font-medium text-white bg-gradient-to-r from-red-500 via-[#F15A29] to-[#EC008C] border border-transparent rounded-md shadow-sm hover:opacity-80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50"
+                >
+                  {isOtpSent ? 'OTP Sent' : 'Send OTP'}
+                </button>
+              </div>
+            )}
+            {isOtpSent && !isEmailVerified && (
+              <div>
+                <label htmlFor="otp" className="block text-sm font-medium text-gray-700">Enter OTP</label>
+                <div className="mt-1 bg-gradient-to-r from-red-500 via-[#F15A29] to-[#EC008C] rounded-md p-[2px]">
+                  <input
+                    id="otp"
+                    type="text"
+                    value={otp}
+                    onChange={(e) => setOtp(e.target.value)}
+                    required
+                    className="block w-full rounded-md bg-white text-gray-700 border-none focus:outline-none focus:ring-2 focus:ring-indigo-200 focus:ring-opacity-50"
+                  />
+                </div>
+                <button
+                  type="button"
+                  onClick={verifyOtp}
+                  className="mt-2 px-4 py-2 text-sm font-medium text-white bg-gradient-to-r from-red-500 via-[#F15A29] to-[#EC008C] border border-transparent rounded-md shadow-sm hover:opacity-80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                >
+                  Verify OTP
+                </button>
+              </div>
+            )}
+            {isEmailVerified && (
+              <div className="text-green-600 text-sm">Email verified successfully!</div>
+            )}
             <div>
               <label htmlFor="phone" className="block text-sm font-medium text-gray-700">Phone Number</label>
               <div className="mt-1 bg-gradient-to-r from-red-500 via-[#F15A29] to-[#EC008C] rounded-md p-[2px]">
@@ -66,7 +140,7 @@ export function ContactForm({ isOpen, onClose }) {
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                   required
-                  className="block w-full rounded-md bg-white text-gray-700 border-none focus:outline-none focus:ring-2 focus:ring-indigo-200 focus:ring-opacity-0"
+                  className="block w-full rounded-md bg-white text-gray-700 border-none focus:outline-none focus:ring-2 focus:ring-indigo-200 focus:ring-opacity-50"
                 />
               </div>
             </div>
@@ -81,7 +155,8 @@ export function ContactForm({ isOpen, onClose }) {
             </button>
             <button
               type="submit"
-              className="px-4 py-2 text-sm font-medium text-white bg-gradient-to-r from-red-500 via-[#F15A29] to-[#EC008C] border border-transparent rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              disabled={!isEmailVerified}
+              className="px-4 py-2 text-sm font-medium text-white bg-gradient-to-r from-red-500 via-[#F15A29] to-[#EC008C] border border-transparent rounded-md shadow-sm hover:opacity-80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50"
             >
               Submit
             </button>
@@ -91,3 +166,4 @@ export function ContactForm({ isOpen, onClose }) {
     </div>
   )
 }
+
