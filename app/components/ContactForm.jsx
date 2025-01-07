@@ -48,11 +48,23 @@ export function ContactForm({ isOpen, onClose }) {
     }
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault()
     if (!isEmailVerified) {
       console.log('Please verify your email first')
       return
+    }
+    try {
+        const response = await axios.post('http://localhost:8000/send-info', {
+        email: email,
+        name: name,
+        phone: phone
+        });
+        if (response.status === 200) {
+            setIsOtpSent(true)
+        }
+    } catch (error) {
+        console.error('Error submitting form:', error);
     }
     // Handle form submission here
     console.log({ name, email, phone })

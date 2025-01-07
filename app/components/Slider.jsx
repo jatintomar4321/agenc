@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { useTheme } from '../contects/ThemeContext'
 
 const AdvancedSliderSection = ({h1}) => {
+
+    const { theme } = useTheme()
+    const bgColor = theme === 'dark' ? 'text-white' : 'text-black'
+    // const textColor = theme === 'dark' ? 'text-white' : 'text-black'
+  
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -107,7 +113,7 @@ const AdvancedSliderSection = ({h1}) => {
   const visibleCards = isMobile ? 1 : 4;
 
   return (
-    <div  className="bg-[#0C0C0C] relative top-10 mb-10 h-full  py-10 md:p-9">
+    <div  className="${bgColor} relative top-10 mb-10 h-full  py-10 md:p-9">
       <div className="max-w-8xl mx-auto">
         {/* Header Section */}
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-start gap-4 mb-8 md:mb-12">

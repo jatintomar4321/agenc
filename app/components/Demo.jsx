@@ -1,9 +1,14 @@
 import React from 'react'
 import Slider from './Slider'
+import { useTheme } from '../contects/ThemeContext'
 
 const demo = () => {
+
+  const { theme } = useTheme()
+  const bgColor = theme === 'dark' ? 'text-white' : 'text-black'
+
   return (
-    <div className='bg-[#0C0C0C] sticky top-10 pb-4 sm:pb-4 lg:pb-24 h-full'>
+    <div className="${bgColor}  sticky top-10 pb-4 sm:pb-4 lg:pb-24 h-full">
       <img 
         className="px-4 sm:px-8 md:px-16 lg:px-40 w-full h-auto" 
         src="Choice and Input.png" 

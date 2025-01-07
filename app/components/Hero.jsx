@@ -2,8 +2,16 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import { useTheme } from '../contects/ThemeContext'
 
 export default function Hero() {
+
+  const { theme } = useTheme()
+
+  const textColor = theme === 'dark' ? 'text-white' : 'text-black'
+  const bgColor = theme === 'dark' ? 'text-white' : 'text-black'
+
+
   const [hoveredIcon, setHoveredIcon] = useState(null)
 
   const features = [
@@ -110,8 +118,9 @@ export default function Hero() {
   }
 
   return (
+    
     <motion.div 
-      className="w-full -z-30 max-h-screen  bg-[#0C0C0C] flex flex-col items-center justify-center text-center px-4 pt-20 lg:pt-40 pb-32"
+      className="w-full -z-30 max-h-screen  ${bgColor} flex flex-col items-center justify-center text-center px-4 pt-20 lg:pt-40 pb-32"
       variants={containerVariants}
       initial="hidden"
       animate="visible"
@@ -127,7 +136,7 @@ export default function Hero() {
 
       {/* Main Heading */}
       <motion.h1
-        className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-8 sm:mb-12 md:mb-16 max-w-4xl"
+        className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold ${textColor} mb-8 sm:mb-12 md:mb-16 max-w-4xl"
         variants={textVariants}
       >
         The new era of{' '}<br/>
