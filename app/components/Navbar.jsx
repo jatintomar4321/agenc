@@ -7,6 +7,7 @@ import { ContactForm } from './ContactForm'
 export default function Navbar() {
   const [isHovered, setIsHovered] = useState(false)
   const [isContactFormOpen, setIsContactFormOpen] = useState(false)
+  
 
   return (
     <div className='w-full flex justify-center'>

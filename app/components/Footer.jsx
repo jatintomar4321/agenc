@@ -1,11 +1,19 @@
 import React from 'react';
+import { useTheme } from '../contects/ThemeContext'
+
+
+
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   const [isHovered, setIsHovered] = React.useState(true);
 
+    const { theme } = useTheme()
+    const bgColor = theme === 'dark' ? 'bg-[#1F1F1F]' : 'bg-white'
+    const textColor = theme === 'dark' ? 'text-white' : 'text-black'
+
   return (
-    <footer className="bg-[#1F1F1F] text-white py-8 sm:py-12 md:py-16 px-4 mx-4 sm:mx-6 md:mx-8 lg:mx-10 my-6 sm:my-8 md:my-10 rounded-2xl sm:rounded-[2rem] md:rounded-[2.5rem]">
+    <footer className={`${bgColor} ${textColor} py-8 sm:py-12 md:py-8 px-4 mx-4 sm:mx-6 md:mx-8 lg:mx-10 my-6 sm:my-8 md:my-10 rounded-2xl sm:rounded-[2rem] md:rounded-[2.5rem]`}>
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col lg:flex-row justify-between space-y-8 lg:space-y-0 lg:mx-6 xl:mx-10">
           {/* Columns Container */}
@@ -81,7 +89,7 @@ const Footer = () => {
 
         {/* Copyright */}
         <div className="text-center text-gray-400">
-          <p>&copy; {currentYear} <span className="font-medium text-white">ModTerra Technologies Pvt Ltd.</span> All Rights Reserved.</p>
+          <p>&copy; {currentYear} <span className={`font-medium ${textColor}`}>ModTerra Technologies Pvt Ltd.</span> All Rights Reserved.</p>
         </div>
       </div>
     </footer>

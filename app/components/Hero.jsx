@@ -9,7 +9,8 @@ export default function Hero() {
   const { theme } = useTheme()
 
   const textColor = theme === 'dark' ? 'text-white' : 'text-black'
-  const bgColor = theme === 'dark' ? 'text-white' : 'text-black'
+  const bgColor = theme === 'dark' ? 'bg-black' : 'bg-[#F5F5F5]'
+  const smallHeading = theme === 'dark' ? 'text-[#F7F7F7]': 'text-[#837E7E]'
 
 
   const [hoveredIcon, setHoveredIcon] = useState(null)
@@ -120,7 +121,7 @@ export default function Hero() {
   return (
     
     <motion.div 
-      className="w-full -z-30 max-h-screen  ${bgColor} flex flex-col items-center justify-center text-center px-4 pt-20 lg:pt-40 pb-32"
+      className={`w-full -z-30 max-h-screen ${bgColor} flex flex-col items-center justify-center text-center px-4 pt-20 lg:pt-40 pb-32`}
       variants={containerVariants}
       initial="hidden"
       animate="visible"
@@ -128,7 +129,7 @@ export default function Hero() {
     >
       {/* Tagline */}
       <motion.h2
-        className="text-white/80 text-lg sm:text-xl md:text-[1.6rem] mb-4 sm:mb-6"
+        className={`${smallHeading} text-lg sm:text-xl md:text-[1.6rem] mb-4 sm:mb-6`}
         variants={textVariants}
       >
         Faster. Smarter. Limitless
@@ -187,7 +188,7 @@ export default function Hero() {
               <div className="absolute inset-0 rounded-xl lg:rounded-2xl bg-gradient-to-r from-[#ED1C24] via-[#F15A29] to-[#EC008C]" />
               
               {/* Inner Background */}
-              <div className="absolute inset-[1px] rounded-xl lg:rounded-2xl bg-[#0F0F0F]" />
+              <div className={`absolute inset-[1px] rounded-xl lg:rounded-2xl ${bgColor}`} />
 
               {/* Content */}
               <div className="relative z-10 flex flex-col items-center">

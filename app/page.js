@@ -1,16 +1,16 @@
 'use client'
 
-import React, { useRef, useEffect } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
+import LocomotiveScroll from 'locomotive-scroll'
+import { Moon, Sun } from 'lucide-react'
+import { useEffect, useRef } from 'react'
+import Demo from './components/Demo'
+import Footer from './components/Footer'
 import Hero from './components/Hero'
 import Navbar from './components/Navbar'
-import Demo from './components/Demo'
-import Slider from './components/Slider'
-import LocomotiveScroll from 'locomotive-scroll'
 import PricingTable from './components/PricingTable'
-import Footer from './components/Footer'
+import Slider from './components/Slider'
 import { ThemeProvider, useTheme } from './contects/ThemeContext'
-import { Sun, Moon } from 'lucide-react'
 
 const ThemeToggle = () => {
   const { theme, toggleTheme } = useTheme()
@@ -46,7 +46,7 @@ const PageContent = () => {
     }
   }, [])
 
-  const bgColor = theme === 'dark' ? 'bg-[#0C0C0C]' : 'bg-white'
+  const bgColor = theme === 'dark' ? 'bg-[#0C0C0C]' : 'bg-[#F5F5F5]'
   const textColor = theme === 'dark' ? 'text-white' : 'text-black'
 
   return (
@@ -58,7 +58,14 @@ const PageContent = () => {
       </motion.div>
       <Demo />
       <div className={`${bgColor} absolute w-full transition-colors duration-300`}>
-        <Slider h1="Faster" />
+        <Slider h1="Faster" 
+      image1="./1.jpg"
+      image2="./2.jpg"
+      image3="./3.jpg"
+      image4="./4.jpg"
+
+
+              />
         <Slider h1="Smarter" />
         <Slider h1="Limitless" />
         <PricingTable />

@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-export function ContactForm({ isOpen, onClose }) {
+
+export function ContactForm({ isOpen, onClose, onSubmit }) {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [phone, setPhone] = useState('')
@@ -20,9 +21,7 @@ export function ContactForm({ isOpen, onClose }) {
   }, [isOpen])
 
   const sendOtp = async () => {
-    // Simulate sending OTP
     console.log(`Sending OTP to ${email}`)
-    // Simulate OTP for demo purposes (in real scenario, this would be generated on the server)
     window.demoOtp = Math.floor(100000 + Math.random() * 900000).toString()
     
     try {
@@ -39,7 +38,6 @@ export function ContactForm({ isOpen, onClose }) {
   }
 
   const verifyOtp = () => {
-    // In a real application, you would verify the OTP with your backend
     if (otp === window.demoOtp) {
       setIsEmailVerified(true)
       console.log('OTP verified successfully')
@@ -62,11 +60,11 @@ export function ContactForm({ isOpen, onClose }) {
         });
         if (response.status === 200) {
             setIsOtpSent(true)
+            onSubmit() // Call the onSubmit prop to notify PricingTable
         }
     } catch (error) {
         console.error('Error submitting form:', error);
     }
-    // Handle form submission here
     console.log({ name, email, phone })
     onClose()
   }
