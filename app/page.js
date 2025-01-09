@@ -18,7 +18,7 @@ const ThemeToggle = () => {
   return (
     <button
       onClick={toggleTheme}
-      className="fixed top-4 right-4 z-50 p-2 rounded-full bg-opacity-20 backdrop-blur-sm"
+      className="fixed bottom-10 left-4 z-50 p-2 rounded-full bg-opacity-20 backdrop-blur-sm"
       aria-label="Toggle theme"
     >
       {theme === 'dark' ? <Sun className="text-white" /> : <Moon className="text-black" />}
@@ -53,11 +53,15 @@ const PageContent = () => {
     <div ref={scrollRef} className={`w-full ${bgColor} ${textColor} h-full pt-10 transition-colors duration-300`}>
       <Navbar />
       <ThemeToggle />
-      <motion.div style={{ scale: heroScale }} className="sticky top-0">
-        <Hero />
+      <motion.div style={{ scale: heroScale }} className="sticky top-5">
+        <Hero/>
       </motion.div>
+      <motion.div  className='sticky top-10 '>
       <Demo />
-      <div className={`${bgColor} absolute w-full transition-colors duration-300`}>
+      </motion.div>
+      
+
+      <div className={`${bgColor} relative w-full transition-colors duration-300`}>
         <Slider h1="Faster" 
       image1="./1.jpg"
       image2="./2.jpg"

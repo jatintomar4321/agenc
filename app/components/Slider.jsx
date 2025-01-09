@@ -111,9 +111,9 @@ const AdvancedSliderSection = ({h1,image1,image2,image3,image4}) => {
                   <img
                     src={product.image}
                     alt={product.alt}
-                    className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
+                    className="w-full h-full object-contain "
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0">
                     <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
                       <h3 className="text-lg font-semibold">{product.title}</h3>
                       <p className="text-sm text-gray-200">{product.description}</p>
