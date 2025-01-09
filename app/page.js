@@ -81,8 +81,8 @@ const PageContent = () => {
       image4="./8.jpg"
         />
         <Slider h1="Limitless" 
-                        h2="Brainstorm Ideas"
-        h3="Master Analytics"
+                        h2="User Collabortion"
+        h3="Feedback Loops"
                 image1="./9.jpg"
       image2="./10.jpg"
       image3="./11.jpg"

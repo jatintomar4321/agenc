@@ -1,9 +1,12 @@
 import React from 'react';
 import { useTheme } from '../contects/ThemeContext';
+import { useState } from 'react'
+import { ContactForm } from './ContactForm'
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  const [isHovered, setIsHovered] = React.useState(true);
+  const [isHovered, setIsHovered] = useState(true);
+    const [isContactFormOpen, setIsContactFormOpen] = useState(false)
 
   const { theme } = useTheme();
   const bgColor = theme === 'dark' ? 'bg-[#1F1F1F]' : 'bg-white';
@@ -91,6 +94,7 @@ const Footer = () => {
               className={`relative group w-full sm:w-auto px-6 py-2 rounded-full transition-all duration-300 ease-in-out
                           ${isHovered ? 'shadow-lg transform -translate-y-0.5' : 'shadow-md'}
                           active:shadow-inner active:transform active:translate-y-0 active:scale-95`}
+                          onClick={() => setIsContactFormOpen(true)}
             >
               {/* Button gradient border */}
               <div
@@ -124,7 +128,12 @@ const Footer = () => {
           </p>
         </div>
       </div>
+       <ContactForm 
+              isOpen={isContactFormOpen} 
+              onClose={() => setIsContactFormOpen(false)} 
+            />
     </footer>
+    
   );
 };
 
