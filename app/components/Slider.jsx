@@ -39,7 +39,7 @@ const AdvancedSliderSection = ({h1,image1,image2,image3,image4}) => {
   const nextSlide = () => {
     const increment = window.innerWidth <= 768 ? 2 : 1; // Adjust the width threshold for mobile screens
     setCurrentIndex((prevIndex) =>
-      prevIndex + 4 >= productImages.length ? 0 : prevIndex + increment
+      prevIndex + 1 >= productImages.length ? 0 : prevIndex + increment
     );
   };
 
@@ -95,7 +95,7 @@ const AdvancedSliderSection = ({h1,image1,image2,image3,image4}) => {
           <motion.div
             className="flex"
             style={{ width: isMobile ? `${productImages.length * 50}%` : `${productImages.length * (100 / visibleCards)}%` }}
-            animate={{ x: isMobile ? `-${currentIndex * (10 / visibleCards)}%` : `-${currentIndex * (40 / visibleCards)}%` }}
+            animate={{ x: isMobile ? `-${currentIndex * (13 / visibleCards)}%` : `-${currentIndex * (40 / visibleCards)}%` }}
             transition={{ type: "spring", stiffness: 100, damping: 20 }}
           >
             {productImages.map((product) => (
@@ -125,16 +125,16 @@ const AdvancedSliderSection = ({h1,image1,image2,image3,image4}) => {
           </motion.div>
 
           {/* Navigation Buttons */}
-          <div className="mt-4 flex justify-between items-center">
+          <div className="mt-4 flex justify-between lg:hidden items-center">
             <button
               onClick={prevSlide}
-              className="px-3 md:px-4 py-1 md:py-2 bg-black border border-[#ff4545] text-[#ff4545] hover:bg-[#ff4545] hover:text-black transition-colors rounded-full text-sm md:text-base"
+            className={`px-3 md:px-4 py-1 md:py-2 ${bgColor} border border-[#ff4545] text-[#ff4545] hover:bg-[#ff4545] hover:text-black transition-colors rounded-full text-sm md:text-base`}
             >
               Prev
             </button>
             <button
               onClick={nextSlide}
-              className="px-3 md:px-4 py-1 md:py-2 bg-black border border-[#ff4545] text-[#ff4545] hover:bg-[#ff4545] hover:text-black transition-colors rounded-full text-sm md:text-base"
+              className={`px-3 md:px-4 py-1 md:py-2 ${bgColor} border border-[#ff4545] text-[#ff4545] hover:bg-[#ff4545] hover:text-black transition-colors rounded-full text-sm md:text-base`}
             >
               Next
             </button>

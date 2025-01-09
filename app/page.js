@@ -67,16 +67,16 @@ const PageContent = () => {
 
               />
         <Slider h1="Smarter" 
-                image1="./1.jpg"
-      image2="./2.jpg"
-      image3="./3.jpg"
-      image4="./4.jpg"
+                image1="./5.jpg"
+      image2="./6.jpg"
+      image3="./7.jpg"
+      image4="./8.jpg"
         />
         <Slider h1="Limitless" 
-                image1="./1.jpg"
-      image2="./2.jpg"
-      image3="./3.jpg"
-      image4="./4.jpg"
+                image1="./9.jpg"
+      image2="./10.jpg"
+      image3="./11.jpg"
+      image4="./12.jpg"
         />
         <PricingTable />
         <Footer />

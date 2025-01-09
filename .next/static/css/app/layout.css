@@ -745,6 +745,10 @@ video {
   --tw-translate-y: -0.125rem;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
+.translate-x-2 {
+  --tw-translate-x: 0.5rem;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
 .scale-105 {
   --tw-scale-x: 1.05;
   --tw-scale-y: 1.05;
@@ -1054,6 +1058,10 @@ video {
   font-size: 1.25rem;
   line-height: 1.75rem;
 }
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
 .font-black {
   font-weight: 900;
 }
@@ -1219,6 +1227,11 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.hover\:translate-x-10:hover {
+  --tw-translate-x: 2.5rem;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
 .hover\:scale-50:hover {
   --tw-scale-x: .5;
   --tw-scale-y: .5;
@@ -1244,6 +1257,11 @@ body {
   background-color: rgb(255 255 255 / 0.2);
 }
 
+.hover\:text-lg:hover {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
 .hover\:text-black:hover {
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity, 1));
@@ -1252,6 +1270,11 @@ body {
 .hover\:text-white:hover {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+}
+
+.hover\:text-gray-200:hover {
+  --tw-text-opacity: 1;
+  color: rgb(229 231 235 / var(--tw-text-opacity, 1));
 }
 
 .hover\:opacity-80:hover {
@@ -1356,6 +1379,11 @@ body {
     margin-bottom: 2rem;
   }
 
+  .sm\:my-10 {
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+  }
+
   .sm\:mb-12 {
     margin-bottom: 3rem;
   }
@@ -1434,6 +1462,18 @@ body {
     margin-bottom: calc(0.25rem * var(--tw-space-y-reverse));
   }
 
+  .sm\:space-x-6 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 0;
+    margin-right: calc(1.5rem * var(--tw-space-x-reverse));
+    margin-left: calc(1.5rem * calc(1 - var(--tw-space-x-reverse)));
+  }
+
+  .sm\:space-y-3 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-y-reverse: 0;
+    margin-top: calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));
+    margin-bottom: calc(0.75rem * var(--tw-space-y-reverse));
+  }
+
   .sm\:rounded-\[2rem\] {
     border-radius: 2rem;
   }
@@ -1450,6 +1490,16 @@ body {
   .sm\:py-12 {
     padding-top: 3rem;
     padding-bottom: 3rem;
+  }
+
+  .sm\:px-6 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .sm\:py-8 {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
   }
 
   .sm\:pb-4 {
@@ -1475,6 +1525,16 @@ body {
     font-size: 0.75rem;
     line-height: 1rem;
   }
+
+  .sm\:text-base {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+
+  .sm\:text-sm {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
 }
 
 @media (min-width: 768px) {
@@ -1492,6 +1552,11 @@ body {
   .md\:my-16 {
     margin-top: 4rem;
     margin-bottom: 4rem;
+  }
+
+  .md\:my-12 {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
   }
 
   .md\:mb-12 {
@@ -1534,6 +1599,12 @@ body {
     margin-left: calc(2rem * calc(1 - var(--tw-space-x-reverse)));
   }
 
+  .md\:space-x-10 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 0;
+    margin-right: calc(2.5rem * var(--tw-space-x-reverse));
+    margin-left: calc(2.5rem * calc(1 - var(--tw-space-x-reverse)));
+  }
+
   .md\:rounded-\[2\.5rem\] {
     border-radius: 2.5rem;
   }
@@ -1564,6 +1635,16 @@ body {
   .md\:py-8 {
     padding-top: 2rem;
     padding-bottom: 2rem;
+  }
+
+  .md\:px-8 {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .md\:py-12 {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
   }
 
   .md\:text-5xl {
@@ -1601,6 +1682,10 @@ body {
   .lg\:mx-6 {
     margin-left: 1.5rem;
     margin-right: 1.5rem;
+  }
+
+  .lg\:hidden {
+    display: none;
   }
 
   .lg\:h-16 {
@@ -1656,6 +1741,11 @@ body {
   .lg\:px-40 {
     padding-left: 10rem;
     padding-right: 10rem;
+  }
+
+  .lg\:px-10 {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
   }
 
   .lg\:pb-24 {
