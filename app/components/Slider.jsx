@@ -71,23 +71,38 @@ const AdvancedSliderSection = ({h1,h2,h3,image1,image2,image3,image4}) => {
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-start gap-4 mb-8 md:mb-12">
           <h1 className="bg-gradient-to-r from-red-500 via-[#F15A29] to-[#EC008C] 
                        text-transparent bg-clip-text text-3xl md:text-5xl font-bold font-[`Inter`]">{h1}.</h1>
-          <div className="flex flex-wrap gap-4">
-          <div className="mx-auto flex items-center justify-center">
-  <div className=" w-full rounded-full bg-gradient-to-r from-red-500 via-[#F15A29] to-[#EC008C] p-[0.15rem]">
-    <div className={`flex h-full w-full px-10 py-2 rounded-full items-center justify-center ${bgColor} back`}>
-    
-      <h1 className={`text-md font-black `}>{h2}</h1>
+         <div className="flex gap-2 sm:gap-4 md:gap-6 lg:gap-8 justify-center items-center">
+  {/* First Gradient Box */}
+  <div className="flex items-center justify-center">
+    <div className="rounded-full bg-gradient-to-r from-red-500 via-[#F15A29] to-[#EC008C] p-[0.15rem]">
+      <div
+        className={`flex items-center justify-center px-4 sm:px-6 md:px-8 lg:px-10 py-2 rounded-full ${bgColor} back`}
+      >
+        <h1
+          className={`text-xs sm:text-sm md:text-base lg:text-lg font-thin`}
+        >
+          {h2}
+        </h1>
+      </div>
+    </div>
+  </div>
+
+  {/* Second Gradient Box */}
+  <div className="flex items-center justify-center">
+    <div className="rounded-full bg-gradient-to-r from-red-500 via-[#F15A29] to-[#EC008C] p-[0.15rem]">
+      <div
+        className={`flex items-center justify-center px-6 sm:px-8 md:px-10 lg:px-12 py-2 rounded-full ${bgColor} back`}
+      >
+        <h1
+          className={`text-xs sm:text-sm md:text-base lg:text-lg font-thin`}
+        >
+          {h3}
+        </h1>
+      </div>
     </div>
   </div>
 </div>
-            <div className="mx-auto flex  items-center justify-center">
-  <div className="  rounded-full bg-gradient-to-r from-red-500 via-[#F15A29] to-[#EC008C] p-[0.15rem]">
-    <div className={`flex h-full w-full px-10 py-2 rounded-full items-center justify-center ${bgColor} back`}>
-      <h1 className={`text-md font-black `}>{h3} </h1>
-    </div>
-  </div>
-</div>
-          </div>
+
         </div>
 
         {/* Slider */}
