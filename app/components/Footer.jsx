@@ -20,41 +20,31 @@ const Footer = () => {
           <div className='flex flex-col sm:flex-row space-y-8 sm:space-y-0 sm:space-x-8 md:space-x-12 lg:space-x-16 xl:space-x-20'>
             {/* First Column */}
             <div>
-              <h3 className="text-lg font-medium mb-4 sm:mb-6">Lorem ipsum</h3>
+              <h3 className="text-lg font-medium mb-4 sm:mb-6">Socials</h3>
               <ul className="space-y-2 sm:space-y-4">
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Lorem ipsum</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Lorem ipsum</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Lorem ipsum</a></li>
+                <li><a href="#" className="text-gray-400 hover:text-gray transition-colors">Linkedin</a></li>
+                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Instagram</a></li>
+                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Facebook</a></li>
               </ul>
             </div>
 
             {/* Second Column */}
             <div>
-              <h3 className="text-lg font-medium mb-4 sm:mb-6">Lorem ipsum</h3>
-              <ul className="space-y-2 sm:space-y-4">
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Lorem ipsum</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Lorem ipsum</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Lorem ipsum</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Lorem ipsum</a></li>
-              </ul>
-            </div>
-
-            {/* Third Column */}
-            <div>
-              <h3 className="text-lg font-medium mb-4 sm:mb-6">Lorem ipsum</h3>
-              <ul className="space-y-2 sm:space-y-4">
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Lorem ipsum</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Lorem ipsum</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Lorem ipsum</a></li>
+              <h3 className="text-lg font-medium mb-4 sm:mb-6">address</h3>
+              <ul className="space-y-2 sm:space-y-1">
+                <li><a href="#" className="text-gray-400 ">Office no. 108, 1st Floor,</a></li>
+                <li><a href="#" className="text-gray-400 ">Wing-C, Trade World Premises Cooperative Society Ltd,</a></li>
+                <li><a href="#" className="text-gray-400 ">Kamla Mills Compound,</a></li>
+                <li><a href="#" className="text-gray-400 ">Lower Parel, Mumbai - 400013</a></li>
               </ul>
             </div>
           </div>
 
           {/* Fourth Column */}
           <div className="lg:max-w-xs">
-            <h3 className="text-lg font-medium mb-4 sm:mb-6">Lorem ipsum</h3>
-            <p className="text-gray-400 mb-4 sm:mb-6">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+            <h3 className="text-lg font-medium mb-4 sm:mb-6">Contact us at</h3>
+            <p className="text-gray-400 mb-4 sm:mb-6 mr-16">
+              support@your-agenc.ai
             </p>
             <div className="absolute inset-0 rounded-full  opacity-50 -z-10" />
             <button 

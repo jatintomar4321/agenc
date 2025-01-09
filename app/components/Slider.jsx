@@ -16,31 +16,23 @@ const AdvancedSliderSection = ({h1,image1,image2,image3,image4}) => {
   const productImages = [
     {
       id: 1,
-      image: {image1},
-      alt: "Black modular bench design",
-      title: "The Art of Value",
-      description: "Modern modular seating solution"
+      image: image1,
+
     },
     {
       id: 2,
-      image:{image2},
-      alt: "Brown circular chair",
-      title: "The Joy of Service",
-      description: "Comfortable curved design"
+      image:image2,
+    
     },
     {
       id: 3,
-      image:{image3},
-      alt: "Yellow folding chair",
-      title: "The Promise of Variety",
-      description: "Contemporary folding chair"
+      image:image3,
+ 
     },
     {
       id: 4,
-      image:{image4},
-      alt: "Recliner sofas collection",
-      title: "Recliner Sofas",
-      description: "Lounge in Luxury"
+      image:image4,
+   
     },
   ];
 
@@ -115,7 +107,7 @@ const AdvancedSliderSection = ({h1,image1,image2,image3,image4}) => {
                 exit={{ opacity: 0, y: 20 }}
                 transition={{ duration: 0.3 }}
               >
-                <div className="relative aspect-[2/3.8] rounded-2xl overflow-hidden group bg-white">
+                <div className="relative rounded-2xl overflow-hidden group ">
                   <img
                     src={product.image}
                     alt={product.alt}
