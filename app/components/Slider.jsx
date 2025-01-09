@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useTheme } from '../contects/ThemeContext'
 
-const AdvancedSliderSection = ({h1,image1,image2,image3,image4}) => {
+const AdvancedSliderSection = ({h1,h2,h3,image1,image2,image3,image4}) => {
 
     const { theme } = useTheme()
     const bgColor = theme === 'dark' ? 'bg-black' : 'bg-[#F5F5F5]'
@@ -76,14 +76,14 @@ const AdvancedSliderSection = ({h1,image1,image2,image3,image4}) => {
   <div className=" w-full rounded-full bg-gradient-to-r from-red-500 via-[#F15A29] to-[#EC008C] p-[0.15rem]">
     <div className={`flex h-full w-full px-10 py-2 rounded-full items-center justify-center ${bgColor} back`}>
     
-      <h1 className={`text-md font-black `}>Explore Idea</h1>
+      <h1 className={`text-md font-black `}>{h2}</h1>
     </div>
   </div>
 </div>
             <div className="mx-auto flex  items-center justify-center">
   <div className="  rounded-full bg-gradient-to-r from-red-500 via-[#F15A29] to-[#EC008C] p-[0.15rem]">
     <div className={`flex h-full w-full px-10 py-2 rounded-full items-center justify-center ${bgColor} back`}>
-      <h1 className={`text-md font-black `}> Make an idea </h1>
+      <h1 className={`text-md font-black `}>{h3} </h1>
     </div>
   </div>
 </div>

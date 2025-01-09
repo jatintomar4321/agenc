@@ -63,6 +63,8 @@ const PageContent = () => {
 
       <div className={`${bgColor} relative w-full transition-colors duration-300`}>
         <Slider h1="Faster" 
+        h2="Explore Idea"
+        h3="Make An Idea"
       image1="./1.jpg"
       image2="./2.jpg"
       image3="./3.jpg"
@@ -71,12 +73,16 @@ const PageContent = () => {
 
               />
         <Slider h1="Smarter" 
+                h2="Brainstorm Ideas"
+        h3="Master Analytics"
                 image1="./5.jpg"
       image2="./6.jpg"
       image3="./7.jpg"
       image4="./8.jpg"
         />
         <Slider h1="Limitless" 
+                        h2="Brainstorm Ideas"
+        h3="Master Analytics"
                 image1="./9.jpg"
       image2="./10.jpg"
       image3="./11.jpg"
