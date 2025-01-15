@@ -9,7 +9,7 @@ export default function Hero() {
   const { theme } = useTheme()
 
   const textColor = theme === 'dark' ? 'text-white' : 'text-black'
-  const bgColor = theme === 'dark' ? 'bg-black' : 'bg-[#F5F5F5]'
+  const bgColor = theme === 'dark' ? 'bg-[#0C0C0C]' : 'bg-[#F5F5F5]'
   const smallHeading = theme === 'dark' ? 'text-[#F7F7F7]': 'text-[#837E7E]'
 
 

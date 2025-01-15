@@ -9,8 +9,8 @@ export default function PricingTable() {
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
 
   const textColor = theme === 'dark' ? 'text-white' : 'text-black';
-  const bgColor = theme === 'dark' ? 'bg-black' : 'bg-[#F5F5F5]';
-  const tablebg = theme === 'dark' ? 'bg-black' : 'bg-white';
+  const bgColor = theme === 'dark' ? 'bg-[#0C0C0C]' : 'bg-[#F5F5F5]';
+  const tablebg = theme === 'dark' ? 'bg-[#0C0C0C]' : 'bg-white';
 
 
 

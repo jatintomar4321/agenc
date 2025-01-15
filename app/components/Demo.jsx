@@ -5,7 +5,7 @@ import { useTheme } from '../contects/ThemeContext'
 const demo = () => {
 
   const { theme } = useTheme()
-  const bgColor = theme === 'dark' ? 'bg-black' : 'bg-[#F5F5F5]'
+  const bgColor = theme === 'dark' ? 'bg-[#0C0C0C]' : 'bg-[#F5F5F5]'
 
   return (
     <div className={`${bgColor}  pb-4 sm:pb-4 lg:pb-24 h-full`}>

@@ -5,7 +5,7 @@ import { useTheme } from '../contects/ThemeContext'
 const AdvancedSliderSection = ({h1,h2,h3,image1,image2,image3,image4}) => {
 
     const { theme } = useTheme()
-    const bgColor = theme === 'dark' ? 'bg-black' : 'bg-[#F5F5F5]'
+    const bgColor = theme === 'dark' ? 'bg-[#0C0C0C]' : 'bg-[#F5F5F5]'
      const textColor = theme === 'dark' ? 'text-black' : 'text-[#F5F5F5]'
 
     // const textColor = theme === 'dark' ? 'text-white' : 'text-black'
@@ -68,7 +68,7 @@ const AdvancedSliderSection = ({h1,h2,h3,image1,image2,image3,image4}) => {
     <div  className={`${bgColor} relative top-10 mb-10 h-full  py-10 md:p-9`}>
       <div className="max-w-8xl mx-auto">
         {/* Header Section */}
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-start gap-4 mb-8 md:mb-12">
+        <div className="flex mx-3 flex-col sm:flex-row items-start sm:items-center justify-start gap-4 mb-8 md:mb-12">
           <h1 className="bg-gradient-to-r from-red-500 via-[#F15A29] to-[#EC008C] 
                        text-transparent bg-clip-text text-3xl md:text-5xl font-bold font-[`Inter`]">{h1}.</h1>
          <div className="flex gap-2 sm:gap-4 md:gap-6 lg:gap-8 justify-center items-center">
@@ -140,7 +140,7 @@ const AdvancedSliderSection = ({h1,h2,h3,image1,image2,image3,image4}) => {
           </motion.div>
 
           {/* Navigation Buttons */}
-          <div className="mt-4 flex justify-between lg:hidden items-center">
+          <div className="mt-4 mx-2 flex justify-between lg:hidden items-center">
             <button
               onClick={prevSlide}
             className={`px-3 md:px-4 py-1 md:py-2 ${bgColor} border border-[#ff4545] text-[#ff4545] hover:bg-[#ff4545] hover:text-black transition-colors rounded-full text-sm md:text-base`}
