@@ -98,6 +98,7 @@ export function ContactForm({ isOpen, onClose }) {
               <input
                 id="name"
                 type="text"
+                placeholder="Enter your name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 required
@@ -114,6 +115,7 @@ export function ContactForm({ isOpen, onClose }) {
                 <input
                   id="email"
                   type="email"
+                  placeholder="Enter your email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
@@ -172,6 +174,8 @@ export function ContactForm({ isOpen, onClose }) {
               <input
                 id="phone"
                 type="tel"
+                maxLength={10}
+                placeholder="Enter your phone number"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 required
