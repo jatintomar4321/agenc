@@ -1,35 +1,35 @@
-"use client"
+"use client";
 
-import Image from "next/image"
-import { useState } from "react"
-import { ContactForm } from "./ContactForm"
-import PricingTable from "./PricingTable"
+import Image from "next/image";
+import { useState } from "react";
+import { ContactForm } from "./ContactForm";
+import PricingTable from "./PricingTable";
 
 export default function Navbar() {
-  const [isHovered, setIsHovered] = useState(false)
-  const [isContactFormOpen, setIsContactFormOpen] = useState(false)
-  const [isFormSubmitted, setIsFormSubmitted] = useState(false)
+  const [isHovered, setIsHovered] = useState(false);
+  const [isContactFormOpen, setIsContactFormOpen] = useState(false);
+  const [isFormSubmitted, setIsFormSubmitted] = useState(false);
 
   const handleFormSubmit = async (formData) => {
     try {
-      const response = await fetch("http://localhost:8000/agenc/send-info", {
+      const response = await fetch("https://api.your-agenc.ai/agenc/send-info", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
-      })
+      });
 
       if (response.ok) {
-        setIsFormSubmitted(true)
-        setIsContactFormOpen(false)
+        setIsFormSubmitted(true);
+        setIsContactFormOpen(false);
       } else {
-        console.error("Error submitting form:", await response.text())
+        console.error("Error submitting form:", await response.text());
       }
     } catch (error) {
-      console.error("Error submitting form:", error)
+      console.error("Error submitting form:", error);
     }
-  }
+  };
 
   return (
     <div className="w-full flex flex-col items-center">
@@ -39,7 +39,7 @@ export default function Navbar() {
           <div className="absolute inset-0 rounded-full  opacity-50 -z-10" />
 
           {/* Logo */}
-          <div className="flex-shrink-0">
+          <div className="flex-shrink-0 pl-6">
             <Image
               src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Group-VA2GOUFvtoTX5fqXXCfgvQictJ6EYM.svg"
               alt="AgenC Logo"
@@ -52,7 +52,11 @@ export default function Navbar() {
           {/* Request Demo Button */}
           <button
             className={`relative group px-6 py-2 rounded-full transition-all duration-300 ease-in-out
-                        ${isHovered ? "shadow-lg transform -translate-y-0.5" : "shadow-md"}
+                        ${
+                          isHovered
+                            ? "shadow-lg transform -translate-y-0.5"
+                            : "shadow-md"
+                        }
                         active:shadow-inner active:transform active:translate-y-0 active:scale-95`}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
@@ -69,7 +73,9 @@ export default function Navbar() {
                              ${isHovered ? "opacity-90" : "opacity-100"} 
                              group-active:opacity-100 group-active:inset-[2px] -z-10`}
             />
-            <span className="text-white text-sm font-medium relative z-10">Request a demo</span>
+            <span className="text-white text-sm font-medium relative z-10">
+              Request a demo
+            </span>
 
             {/* Glow effect */}
             <div
@@ -83,11 +89,11 @@ export default function Navbar() {
       </div>
 
       {/* Contact Form */}
-      <ContactForm isOpen={isContactFormOpen} onClose={() => setIsContactFormOpen(false)} onSubmit={handleFormSubmit} />
-
-
-      
+      <ContactForm
+        isOpen={isContactFormOpen}
+        onClose={() => setIsContactFormOpen(false)}
+        onSubmit={handleFormSubmit}
+      />
     </div>
-  )
+  );
 }
-
