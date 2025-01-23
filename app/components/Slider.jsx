@@ -234,13 +234,13 @@ const AdvancedSliderSection = ({
             <div
               className={`flex justify-center mt-4 ${
                 theme == "dark" ? "bg-[#1F1F1F]" : "bg-white"
-              } w-fit py-2 rounded-full`}
+              } w-16 py-2 rounded-full`}
             >
               {productImages.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => handleDotClick(index)}
-                  className={`w-3 h-3 rounded-full mx-2  ${
+                  className={`w-[0.30rem] h-[0.30rem] rounded-full mx-1  ${
                     currentIndex === index ? "bg-white" : "bg-gray-400"
                   }`}
                 ></button>

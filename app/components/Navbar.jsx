@@ -12,7 +12,7 @@ export default function Navbar() {
 
   const handleFormSubmit = async (formData) => {
     try {
-      const response = await fetch("http://localhost:8000/agenc/send-info", {
+      const response = await fetch("http://api.your-agenc.ai/agenc/send-info", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
