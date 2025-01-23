@@ -1,86 +1,154 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import { motion } from 'framer-motion'
-import { useTheme } from '../contects/ThemeContext'
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { useTheme } from "../contects/ThemeContext";
 
 export default function Hero() {
+  const { theme } = useTheme();
 
-  const { theme } = useTheme()
+  const textColor = theme === "dark" ? "text-white" : "text-black";
+  const bgColor = theme === "dark" ? "bg-[#0C0C0C]" : "bg-[#F5F5F5]";
+  const smallHeading = theme === "dark" ? "text-[#F7F7F7]" : "text-[#837E7E]";
 
-  const textColor = theme === 'dark' ? 'text-white' : 'text-black'
-  const bgColor = theme === 'dark' ? 'bg-[#0C0C0C]' : 'bg-[#F5F5F5]'
-  const smallHeading = theme === 'dark' ? 'text-[#F7F7F7]': 'text-[#837E7E]'
-
-
-  const [hoveredIcon, setHoveredIcon] = useState(null)
+  const [hoveredIcon, setHoveredIcon] = useState(null);
 
   const features = [
     {
-      id: 'explore',
-     
+      id: "Explore",
+
       icon: (
-        <svg className="w-full h-full" viewBox="0 0 78 78" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M16.25 39H61.75M61.75 39L39 16.25M61.75 39L39 61.75" stroke="url(#paint0_linear_83_14112)" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
+        <svg
+          className="w-full h-full"
+          viewBox="0 0 78 78"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M16.25 39H61.75M61.75 39L39 16.25M61.75 39L39 61.75"
+            stroke="url(#paint0_linear_83_14112)"
+            strokeWidth="4"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
           <defs>
-            <linearGradient id="paint0_linear_83_14112" x1="24.9572" y1="27.7038" x2="57.4576" y2="58.4701" gradientUnits="userSpaceOnUse">
-              <stop stopColor="#ED1C24"/>
-              <stop offset="0.47" stopColor="#F15A29"/>
-              <stop offset="0.95" stopColor="#EC008C"/>
+            <linearGradient
+              id="paint0_linear_83_14112"
+              x1="24.9572"
+              y1="27.7038"
+              x2="57.4576"
+              y2="58.4701"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop stopColor="#ED1C24" />
+              <stop offset="0.47" stopColor="#F15A29" />
+              <stop offset="0.95" stopColor="#EC008C" />
             </linearGradient>
           </defs>
         </svg>
-      )
+      ),
     },
     {
-      id: 'make',
-      
+      id: "Make",
+
       icon: (
-        <svg className="w-full h-full" viewBox="0 0 85 85" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M67.2923 74.375L42.5006 56.6667L17.709 74.375V17.7083C17.709 15.8297 18.4553 14.028 19.7836 12.6997C21.112 11.3713 22.9137 10.625 24.7923 10.625H60.209C62.0876 10.625 63.8893 11.3713 65.2177 12.6997C66.546 14.028 67.2923 15.8297 67.2923 17.7083V74.375Z" stroke="url(#paint0_linear_83_14115)" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
+        <svg
+          className="w-full h-full"
+          viewBox="0 0 85 85"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M67.2923 74.375L42.5006 56.6667L17.709 74.375V17.7083C17.709 15.8297 18.4553 14.028 19.7836 12.6997C21.112 11.3713 22.9137 10.625 24.7923 10.625H60.209C62.0876 10.625 63.8893 11.3713 65.2177 12.6997C66.546 14.028 67.2923 15.8297 67.2923 17.7083V74.375Z"
+            stroke="url(#paint0_linear_83_14115)"
+            strokeWidth="4"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
           <defs>
-            <linearGradient id="paint0_linear_83_14115" x1="27.1976" y1="26.6729" x2="70.7456" y2="58.7364" gradientUnits="userSpaceOnUse">
-              <stop stopColor="#ED1C24"/>
-              <stop offset="0.47" stopColor="#F15A29"/>
-              <stop offset="0.95" stopColor="#EC008C"/>
+            <linearGradient
+              id="paint0_linear_83_14115"
+              x1="27.1976"
+              y1="26.6729"
+              x2="70.7456"
+              y2="58.7364"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop stopColor="#ED1C24" />
+              <stop offset="0.47" stopColor="#F15A29" />
+              <stop offset="0.95" stopColor="#EC008C" />
             </linearGradient>
           </defs>
         </svg>
-      )
+      ),
     },
     {
-      id: 'brainstorm',
-     
+      id: "Brainstorm",
       icon: (
-        <svg className="w-full h-full" viewBox="0 0 81 81" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M74.25 40.5H60.75L50.625 70.875L30.375 10.125L20.25 40.5H6.75" stroke="url(#paint0_linear_83_14125)" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
+        <svg
+          className="w-full h-full"
+          viewBox="0 0 85 85"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M42.5007 7.08398V21.2507M42.5007 63.7507V77.9173M17.4611 17.4611L27.484 27.484M57.5173 57.5173L67.5402 67.5402M7.08398 42.5007H21.2507M63.7507 42.5007H77.9173M17.4611 67.5402L27.484 57.5173M57.5173 27.484L67.5402 17.4611"
+            stroke="url(#paint0_linear_83_14120)"
+            strokeWidth="4"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
           <defs>
-            <linearGradient id="paint0_linear_83_14125" x1="19.6673" y1="25.4177" x2="63.0705" y2="71.0704" gradientUnits="userSpaceOnUse">
-              <stop stopColor="#ED1C24"/>
-              <stop offset="0.47" stopColor="#F15A29"/>
-              <stop offset="0.95" stopColor="#EC008C"/>
+            <linearGradient
+              id="paint0_linear_83_14120"
+              x1="20.6392"
+              y1="24.915"
+              x2="71.235"
+              y2="72.8113"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop stopColor="#ED1C24" />
+              <stop offset="0.47" stopColor="#F15A29" />
+              <stop offset="0.95" stopColor="#EC008C" />
             </linearGradient>
           </defs>
         </svg>
-      )
+      ),
     },
     {
-      id: 'analyse',
-      
+      id: "Analyse",
       icon: (
-        <svg className="w-full h-full" viewBox="0 0 85 85" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M42.5007 7.08398V21.2507M42.5007 63.7507V77.9173M17.4611 17.4611L27.484 27.484M57.5173 57.5173L67.5402 67.5402M7.08398 42.5007H21.2507M63.7507 42.5007H77.9173M17.4611 67.5402L27.484 57.5173M57.5173 27.484L67.5402 17.4611" stroke="url(#paint0_linear_83_14120)" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
+        <svg
+          className="w-full h-full"
+          viewBox="0 0 81 81"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M74.25 40.5H60.75L50.625 70.875L30.375 10.125L20.25 40.5H6.75"
+            stroke="url(#paint0_linear_83_14125)"
+            strokeWidth="4"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
           <defs>
-            <linearGradient id="paint0_linear_83_14120" x1="20.6392" y1="24.915" x2="71.235" y2="72.8113" gradientUnits="userSpaceOnUse">
-              <stop stopColor="#ED1C24"/>
-              <stop offset="0.47" stopColor="#F15A29"/>
-              <stop offset="0.95" stopColor="#EC008C"/>
+            <linearGradient
+              id="paint0_linear_83_14125"
+              x1="19.6673"
+              y1="25.4177"
+              x2="63.0705"
+              y2="71.0704"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop stopColor="#ED1C24" />
+              <stop offset="0.47" stopColor="#F15A29" />
+              <stop offset="0.95" stopColor="#EC008C" />
             </linearGradient>
           </defs>
         </svg>
-      )
-    }
-  ]
+      ),
+    },
+  ];
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -91,7 +159,7 @@ export default function Hero() {
         delayChildren: 0.3,
       },
     },
-  }
+  };
 
   const textVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -103,7 +171,7 @@ export default function Hero() {
         ease: "easeOut",
       },
     },
-  }
+  };
 
   const iconVariants = {
     hiddenLeft: { opacity: 0, x: -50 },
@@ -116,16 +184,15 @@ export default function Hero() {
         ease: "easeOut",
       },
     },
-  }
+  };
 
   return (
-    
-    <motion.div 
+    <motion.div
       className={`w-full -z-30 max-h-screen ${bgColor} flex flex-col items-center justify-center text-center px-4 pt-20 lg:pt-40 pb-32`}
       variants={containerVariants}
       initial="hidden"
       animate="visible"
-      ease = "easeInOutExpo"
+      ease="easeInOutExpo"
     >
       {/* Tagline */}
       <motion.h2
@@ -140,24 +207,24 @@ export default function Hero() {
         className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold ${textColor} mb-8 sm:mb-12 md:mb-16 max-w-4xl"
         variants={textVariants}
       >
-        The new era of{' '}<br/>
+        The new era of <br />
         <span className="relative text-4xl sm:text-5xl md:text-6xl lg:text-7xl">
-          Brand{' '}
+          Brand{" "}
           <motion.span
-            initial={{ textShadow: '0 0 10px rgba(255, 0, 0, 0.5)' }}
+            initial={{ textShadow: "0 0 10px rgba(255, 0, 0, 0.5)" }}
             animate={{
               textShadow: [
-                '0 0 10px rgba(255, 0, 0, 0.5)',
-                '0 0 20px rgba(241, 90, 41, 0.6)',
-                '0 0 10px rgba(255, 0, 0, 0.5)',
+                "0 0 10px rgba(255, 0, 0, 0.5)",
+                "0 0 20px rgba(241, 90, 41, 0.6)",
+                "0 0 10px rgba(255, 0, 0, 0.5)",
               ],
             }}
-            transition={{ duration: 1, repeat: Infinity, ease: 'easeInOut' }}
+            transition={{ duration: 1, repeat: Infinity, ease: "easeInOut" }}
             className="bg-gradient-to-r from-[#ED1C24] via-[#F15A29] py-2 to-[#EC008C] 
                        text-transparent bg-clip-text"
             style={{
-              display: 'inline-block',
-              backgroundSize: '200%',
+              display: "inline-block",
+              backgroundSize: "200%",
             }}
           >
             Intelligence
@@ -173,39 +240,55 @@ export default function Hero() {
             className="relative group"
             onMouseEnter={() => setHoveredIcon(feature.id)}
             onMouseLeave={() => setHoveredIcon(null)}
-            variants={index < 2 ? iconVariants : { ...iconVariants, hiddenLeft: iconVariants.hiddenRight }}
+            variants={
+              index < 2
+                ? iconVariants
+                : { ...iconVariants, hiddenLeft: iconVariants.hiddenRight }
+            }
             initial={index < 2 ? "hiddenLeft" : "hiddenRight"}
             animate="visible"
           >
-            <div className={`
+            <div
+              className={`
               aspect-square w-16 h-16 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-36 lg:h-36
               rounded-xl lg:rounded-2xl flex flex-col items-center justify-center p-2 md:p-4
               transition-all duration-300 ease-in-out
               relative overflow-hidden
-              ${hoveredIcon === feature.id ? 'transform scale-105' : ''}
-            `}>
+              ${hoveredIcon === feature.id ? "transform scale-105" : ""}
+            `}
+            >
               {/* Gradient Border */}
               <div className="absolute inset-0 rounded-xl lg:rounded-2xl bg-gradient-to-r from-[#ED1C24] via-[#F15A29] to-[#EC008C]" />
-              
+
               {/* Inner Background */}
-              <div className={`absolute inset-[1px] rounded-xl lg:rounded-2xl ${bgColor}`} />
+              <div
+                className={`absolute inset-[1px] rounded-xl lg:rounded-2xl ${bgColor}`}
+              />
 
               {/* Content */}
               <div className="relative z-10 flex flex-col items-center">
-                <div className={`
+                <div
+                  className={`
                   w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-16 lg:h-16 rounded-lg lg:rounded-xl flex items-center justify-center mb-1 md:mb-3
                   text-white/80 transition-colors duration-300
-                  ${hoveredIcon === feature.id ? 'text-red-500' : ''}
-                `}>
+                  ${hoveredIcon === feature.id ? "text-red-500" : ""}
+                `}
+                >
                   {feature.icon}
                 </div>
-                <p className="text-white text-[0.5rem] sm:text-xs md:text-sm lg:text-lg font-medium">{feature.title}</p>
+                <p className="text-white text-[0.5rem] sm:text-xs md:text-sm lg:text-lg font-medium">
+                  {feature.title}
+                </p>
               </div>
             </div>
+            <p
+              className={`${textColor} text-[0.5rem] sm:text-xs md:text-sm lg:text-2xl font-medium mt-4`}
+            >
+              {feature.id}
+            </p>
           </motion.div>
         ))}
       </div>
     </motion.div>
-  )
+  );
 }
-
