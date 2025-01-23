@@ -85,8 +85,8 @@ export default function Navbar() {
       {/* Contact Form */}
       <ContactForm isOpen={isContactFormOpen} onClose={() => setIsContactFormOpen(false)} onSubmit={handleFormSubmit} />
 
-      {/* Pricing Table */}
-      {isFormSubmitted && <PricingTable />}
+
+      
     </div>
   )
 }

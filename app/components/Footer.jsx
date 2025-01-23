@@ -6,11 +6,33 @@ import { ContactForm } from './ContactForm'
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   const [isHovered, setIsHovered] = useState(true);
+  const [isFormSubmitted, setIsFormSubmitted] = useState(false)
     const [isContactFormOpen, setIsContactFormOpen] = useState(false)
 
   const { theme } = useTheme();
   const bgColor = theme === 'dark' ? 'bg-[#1F1F1F]' : 'bg-white';
   const textColor = theme === 'dark' ? 'text-white' : 'text-black';
+
+  const handleFormSubmit = async (formData) => {
+    try {
+      const response = await fetch("http://localhost:8000/agenc/send-info", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      })
+
+      if (response.ok) {
+        setIsFormSubmitted(true)
+        setIsContactFormOpen(false)
+      } else {
+        console.error("Error submitting form:", await response.text())
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error)
+    }
+  }
 
   return (
     <footer
@@ -131,7 +153,10 @@ const Footer = () => {
        <ContactForm 
               isOpen={isContactFormOpen} 
               onClose={() => setIsContactFormOpen(false)} 
+              onSubmit={handleFormSubmit}
             />
+
+        
     </footer>
     
   );
