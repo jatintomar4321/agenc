@@ -1,28 +1,32 @@
-import React, { useState, useEffect } from 'react';
-import { useTheme } from '../contects/ThemeContext';
-import { ContactForm } from './ContactForm';
+import React, { useState } from "react"
+import { useTheme } from "../contects/ThemeContext"
+import { ContactForm } from "./ContactForm"
+import axios from "axios"
 
 export default function PricingTable() {
-  const { theme } = useTheme();
-  const [isVisible, setIsVisible] = useState(false);
-  const [isContactFormOpen, setIsContactFormOpen] = useState(false);
-  const [isFormSubmitted, setIsFormSubmitted] = useState(false);
+  const { theme } = useTheme()
+  const [isContactFormOpen, setIsContactFormOpen] = useState(false)
+  const [isFormSubmitted, setIsFormSubmitted] = useState(false)
 
-  const textColor = theme === 'dark' ? 'text-white' : 'text-black';
-  const bgColor = theme === 'dark' ? 'bg-[#0C0C0C]' : 'bg-[#F5F5F5]';
-  const tablebg = theme === 'dark' ? 'bg-[#0C0C0C]' : 'bg-white';
-
-
+  const textColor = theme === "dark" ? "text-white" : "text-black"
+  const bgColor = theme === "dark" ? "bg-[#0C0C0C]" : "bg-[#F5F5F5]"
+  const tablebg = theme === "dark" ? "bg-[#0C0C0C]" : "bg-white"
 
   const handleViewPricing = () => {
-    setIsContactFormOpen(true);
-  };
+    setIsContactFormOpen(true)
+  }
 
-  const handleFormSubmit = () => {
-    setIsFormSubmitted(true);
-    setIsContactFormOpen(false);
-    setIsVisible(true);
-  };
+  const handleFormSubmit = async (formData) => {
+    try {
+      const response = await axios.post("http://localhost:8000/agenc/send-info", formData)
+      if (response.status === 200) {
+        setIsFormSubmitted(true)
+        setIsContactFormOpen(false)
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error)
+    }
+  }
 
   const features = [
     "Custom Idea Generation",
@@ -33,37 +37,19 @@ export default function PricingTable() {
     "Platform Integrations",
     "Setup & Onboarding Fee",
     "Subscription Price",
-  ];
+  ]
 
-  const liteValues = [
-    "Yes",
-    "Yes",
-    "No",
-    "No",
-    "No",
-    "Yes",
-    "Rs. 50000/-",
-    "Rs. 25000/- per month",
-  ];
+  const liteValues = ["Yes", "Yes", "No", "No", "No", "Yes", "Rs. 50000/-", "Rs. 25000/- per month"]
 
-  const enterpriseValues = [
-    "Yes",
-    "Yes",
-    "Yes",
-    "Yes",
-    "Yes",
-    "Yes",
-    "Rs. 1,50,000/-",
-    "Rs. 75000/- per month",
-  ];
+  const enterpriseValues = ["Yes", "Yes", "Yes", "Yes", "Yes", "Yes", "Rs. 1,50,000/-", "Rs. 75000/- per month"]
 
   return (
-    <div className={`w-full ${bgColor} ${textColor} sm:p-8 ${isFormSubmitted && isVisible ? 'min-h-screen' : 'h-auto'}`}>
-      <div className={`max-w-[1300px] mx-auto px-4 ${isFormSubmitted && isVisible ? '' : 'h-full flex flex-col justify-center'}`}>
+    <div className={`w-full ${bgColor} ${textColor} sm:p-8 ${isFormSubmitted ? "min-h-screen" : "h-auto"}`}>
+      <div className={`max-w-[1300px] mx-auto px-4 ${isFormSubmitted ? "" : "h-full flex flex-col justify-center"}`}>
         {/* Title and Button */}
         <div className="text-center">
           <h2 className="text-2xl lg:text-4xl font-bold pb-6">Features and Pricing</h2>
-          <button 
+          <button
             onClick={handleViewPricing}
             className="mb-8 px-4 py-2 bg-gradient-to-r from-red-500 via-[#F15A29] to-[#EC008C] text-white rounded-md"
           >
@@ -71,13 +57,13 @@ export default function PricingTable() {
           </button>
         </div>
 
-        <ContactForm 
-          isOpen={isContactFormOpen} 
+        <ContactForm
+          isOpen={isContactFormOpen}
           onClose={() => setIsContactFormOpen(false)}
           onSubmit={handleFormSubmit}
         />
 
-        {isFormSubmitted && isVisible && (
+        {isFormSubmitted && (
           <React.Fragment>
             {/* Mobile View */}
             <div className="sm:hidden">
@@ -98,9 +84,7 @@ export default function PricingTable() {
                         }`}
                       >
                         <span>{feature}</span>
-                        <span>
-                          {planIndex === 0 ? liteValues[index] : enterpriseValues[index]}
-                        </span>
+                        <span>{planIndex === 0 ? liteValues[index] : enterpriseValues[index]}</span>
                         {index !== features.length - 1 && (
                           <div className="absolute bottom-0 left-0 h-[1px] w-full bg-gradient-to-r from-red-500 via-[#F15A29] to-[#EC008C]" />
                         )}
@@ -122,9 +106,7 @@ export default function PricingTable() {
                   {features.map((feature, index) => (
                     <div
                       key={feature}
-                      className={`p-6 relative text-base lg:text-xl ${
-                        index === features.length - 1 ? "" : ""
-                      }`}
+                      className={`p-6 relative text-base lg:text-xl ${index === features.length - 1 ? "" : ""}`}
                     >
                       {feature}
                       {index !== features.length - 1 && (
@@ -183,6 +165,6 @@ export default function PricingTable() {
         )}
       </div>
     </div>
-  );
+  )
 }
 

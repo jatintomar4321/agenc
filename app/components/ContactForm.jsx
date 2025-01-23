@@ -1,85 +1,68 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
-import { useTheme } from "../contects/ThemeContext";
+import { useEffect, useState } from "react"
+import { useTheme } from "../contects/ThemeContext"
 
-export function ContactForm({ isOpen, onClose }) {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [otp, setOtp] = useState("");
-  const [isEmailVerified, setIsEmailVerified] = useState(false);
-  const [isOtpSent, setIsOtpSent] = useState(false);
+export function ContactForm({ isOpen, onClose, onSubmit }) {
+  const [name, setName] = useState("")
+  const [email, setEmail] = useState("")
+  const [phone, setPhone] = useState("")
+  const [otp, setOtp] = useState("")
+  const [isEmailVerified, setIsEmailVerified] = useState(false)
+  const [isOtpSent, setIsOtpSent] = useState(false)
 
   useEffect(() => {
     if (isOpen) {
-      document.body.style.overflow = "hidden";
+      document.body.style.overflow = "hidden"
     } else {
-      document.body.style.overflow = "unset";
+      document.body.style.overflow = "unset"
     }
     return () => {
-      document.body.style.overflow = "unset";
-    };
-  }, [isOpen]);
+      document.body.style.overflow = "unset"
+    }
+  }, [isOpen])
 
   const sendOtp = async () => {
-    console.log(`Sending OTP to ${email}`);
-    window.demoOtp = Math.floor(100000 + Math.random() * 900000).toString();
+    console.log(`Sending OTP to ${email}`)
+    window.demoOtp = Math.floor(100000 + Math.random() * 900000).toString()
 
     try {
-      const response = await axios.post(
-        "https://api.your-agenc.ai/agenc/verify",
-        {
-          email: email,
-          otp: window.demoOtp,
-        }
-      );
-      if (response.status === 200) {
-        setIsOtpSent(true);
+      const response = await fetch("http://localhost:8000/agenc/verify", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, otp: window.demoOtp }),
+      })
+      if (response.ok) {
+        setIsOtpSent(true)
       }
     } catch (error) {
-      console.error("Error submitting form:", error);
+      console.error("Error sending OTP:", error)
     }
-  };
+  }
 
-  const { theme } = useTheme();
-  const bgColor = theme === "dark" ? "bg-[#1F1F1F]" : "bg-white";
-  const textColor = theme === "dark" ? "text-white" : "text-gray-900";
+  const { theme } = useTheme()
+  const bgColor = theme === "dark" ? "bg-[#1F1F1F]" : "bg-white"
+  const textColor = theme === "dark" ? "text-white" : "text-gray-900"
 
   const verifyOtp = () => {
     if (otp === window.demoOtp) {
-      setIsEmailVerified(true);
-      console.log("OTP verified successfully");
+      setIsEmailVerified(true)
+      console.log("OTP verified successfully")
     } else {
-      console.log("Invalid OTP");
+      console.log("Invalid OTP")
     }
-  };
+  }
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = (e) => {
+    e.preventDefault()
     if (!isEmailVerified) {
-      console.log("Please verify your email first");
-      return;
+      console.log("Please verify your email first")
+      return
     }
-    try {
-      const response = await axios.post(
-        "https://api.your-agenc.ai/agenc/send-info",
-        {
-          email: email,
-          name: name,
-          phone: phone,
-        }
-      );
-      if (response.status === 200) {
-        setIsOtpSent(true);
-      }
-    } catch (error) {
-      console.error("Error submitting form:", error);
-    }
-    console.log({ name, email, phone });
-    onClose();
-  };
+    onSubmit({ name, email, phone })
+  }
 
-  if (!isOpen) return null;
+  if (!isOpen) return null
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50">
@@ -159,11 +142,7 @@ export function ContactForm({ isOpen, onClose }) {
               </div>
             </div>
           )}
-          {isEmailVerified && (
-            <div className="text-green-500 text-sm font-medium">
-              Email verified successfully!
-            </div>
-          )}
+          {isEmailVerified && <div className="text-green-500 text-sm font-medium">Email verified successfully!</div>}
           <div>
             <label htmlFor="phone" className="block text-sm font-medium mb-1">
               Phone Number
@@ -198,5 +177,6 @@ export function ContactForm({ isOpen, onClose }) {
         </form>
       </div>
     </div>
-  );
+  )
 }
+
