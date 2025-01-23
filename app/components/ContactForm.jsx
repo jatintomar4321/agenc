@@ -25,7 +25,7 @@ export function ContactForm({ isOpen, onClose, onSubmit }) {
     window.demoOtp = Math.floor(100000 + Math.random() * 900000).toString()
 
     try {
-      const response = await fetch("http://api.your-agenc.ai/agenc/verify", {
+      const response = await fetch("https://api.your-agenc.ai/agenc/verify", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
