@@ -21,20 +21,26 @@ export const metadata = {
     siteName: "AGenC.ai",
     images: [
       {
-        url: "../public/meta.jpg", // Replace with your image URL
+        url: "https://www.your-agenc.ai/opengraph-image.jpg",
         width: 1200,
         height: 630,
-        alt: "AGenC.ai Preview Image",
+        alt: "AGenC.ai - AI-powered Content",
       },
     ],
     type: "website",
+  },
+  twitter: {
+    card: "AGenC.ai",
+    title: "AGenC.ai - AI-powered Content",
+    description: "Automate and streamline your content creation with AGenC.ai",
+    images: ["https://www.your-agenc.ai/opengraph-image.jpg"],
   },
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <head></head>
+      <head />
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
