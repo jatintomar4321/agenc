@@ -14,13 +14,27 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "AGenC.ai",
   description: "Your AGenC.ai",
+  openGraph: {
+    title: "AGenC.ai - AI-powered Content",
+    description: "Automate and streamline your content creation with AGenC.ai",
+    url: "https://www.your-agenc.ai",
+    siteName: "AGenC.ai",
+    images: [
+      {
+        url: "../public/meta.jpg", // Replace with your image URL
+        width: 1200,
+        height: 630,
+        alt: "AGenC.ai Preview Image",
+      },
+    ],
+    type: "website",
+  },
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <head>
-      </head>
+      <head></head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
