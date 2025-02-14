@@ -30,7 +30,7 @@ export const metadata = {
     type: "website",
   },
   twitter: {
-    card: "AGenC.ai",
+    card: "summary_large_image",
     title: "AGenC.ai - AI-powered Content",
     description: "Automate and streamline your content creation with AGenC.ai",
     images: ["https://www.your-agenc.ai/opengraph-image.jpg"],
