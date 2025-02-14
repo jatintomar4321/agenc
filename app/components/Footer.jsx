@@ -15,13 +15,16 @@ const Footer = () => {
 
   const handleFormSubmit = async (formData) => {
     try {
-      const response = await fetch("https://localhost:8000/agenc/send-info", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        "https://api.your-agenc.ai/agenc/send-info",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
 
       if (response.ok) {
         setIsFormSubmitted(true);
